@@ -123,3 +123,57 @@ Complete! Files written to:
         temp\syscalls_common.c
         temp\syscalls_common.asm  (or temp\syscalls_common_asm.asm if MinGW)
 Press any key to continue...
+
+
+## Caveats and Limitations
+
+- Egg-Hunter Implementation: The core egg_hunter syscall generation mode is in this tool. However, the actual run-time EGG resolver logic is implemented within Inceptor, not in SysWhispers3 directly.
+
+- Graphics Subsystem Syscalls: System calls from win32k.sys (graphical subsystem) are not supported.
+
+- Tested Environment: Primarily tested on Visual Studio 2019/2022 with Windows 10 SDK.
+
+### Compiler Support:
+
+- MSVC: Primary supported compiler.
+
+- MinGW: Supported via the -c mingw flag and Makefiles are provided. However, it might not be as extensively tested as MSVC.
+
+- NASM/Other GCC: Support for NASM or other GCC/Clang setups on Windows is not guaranteed.
+
+## Troubleshooting
+
+- General (from SysWhispers2)
+  
+   Type Redefinition Errors: A project may fail to compile if typedefs in syscalls.h are already defined elsewhere.
+
+- Ensure you only include necessary functions (e.g., --preset all is rarely needed).
+
+- If a typedef is already defined in another header, consider removing it from syscalls.h.
+
+- SysWhispers3 Specific
+   Verbose Output: Use the -v or --verbose flag for detailed output during code generation, which can help identify issues.
+
+- Debugging Syscalls: Use the -d or --debug flag to insert a software breakpoint (int3) into the syscall stub, facilitating debugging in tools like WinDbg.
+
+- error A2084:constant value too large (MASM): This error during ASM compilation usually indicates that the syscall numbers have changed (e.g., due to a Windows update) since 
+  the function list was last updated or cached. Regenerate the stubs with SysWhispers3, ensuring it fetches the latest syscall numbers.
+
+
+## Credits
+  SysWhispers2
+  
+   Developed by @Jackson_T and @modexpblog, building upon the work of:
+   - @FoxHex0ne: For cataloguing function prototypes and typedefs.
+
+@PetrBenes, NTInternals.net team, and MSDN: For additional prototypes and typedefs.
+
+@Cn33liz: For the initial Dumpert POC.
+
+### SysWhispers2 (x86/WOW64 contributions)
+- @rooster: For creating a sample x86/WOW64 compatible fork.
+
+### SysWhispers3 Influences & Ideas
+- @ElephantSe4l: For the idea of randomizing jumps to syscalls.
+
+- @S4ntiagoP: For the incredible work on nanodump, which provided inspiration.
