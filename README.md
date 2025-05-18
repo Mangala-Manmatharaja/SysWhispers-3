@@ -31,11 +31,32 @@ SysWhispers3 retains the core functionality of SysWhispers2 but introduces sever
 *   **Direct Jumps to Syscalls:** Implements direct jumps to syscall instructions in both x86 and x64 modes, which can help bypass certain RIP-based detections.
 *   **Randomized Jumps to Syscalls:** Extends the direct jump technique by jumping to one of several `syscall` instructions, an idea borrowed from [@ElephantSeal](https://twitter.com/ElephantSe4l/status/1488464546746540042).
 
-For a more detailed explanation of these features, refer to the blog post: [SysWhispers is dead, long live SysWhispers!][2]
 
-## Installation
 
-```bash
-git clone https://github.com/klezVirus/SysWhispers3.git
-cd SysWhispers3
-python ./syswhispers.py --help
+## Usage
+C:\> python syswhispers.py -h
+
+usage: syswhispers.py [-h] [-p PRESET] [-a {x86,x64}] [-c {msvc,mingw,all}]
+                      [-m {embedded,egg_hunter,jumper,jumper_randomized}]
+                      [-f FUNCTIONS] -o OUT_FILE [--int2eh] [--wow64] [-v] [-d]
+
+SysWhispers3 - SysWhispers on steroids
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PRESET, --preset PRESET
+                        Preset ("all", "common")
+  -a {x86,x64}, --arch {x86,x64}
+                        Architecture
+  -c {msvc,mingw,all}, --compiler {msvc,mingw,all}
+                        Compiler (msvc is primary, mingw is community supported)
+  -m {embedded,egg_hunter,jumper,jumper_randomized}, --method {embedded,egg_hunter,jumper,jumper_randomized}
+                        Syscall recovery method
+  -f FUNCTIONS, --functions FUNCTIONS
+                        Comma-separated functions
+  -o OUT_FILE, --out-file OUT_FILE
+                        Output basename (w/o extension)
+  --int2eh              Use the old `int 2eh` instruction in place of `syscall` (x86 only)
+  --wow64               Use Wow64 to run x86 on x64 (only usable with x86 architecture)
+  -v, --verbose         Enable debug output
+  -d, --debug           Enable syscall debug (insert software breakpoint)
