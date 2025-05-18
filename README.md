@@ -71,3 +71,17 @@ optional arguments:
   -v, --verbose         Enable debug output
   
   -d, --debug           Enable syscall debug (insert software breakpoint)
+
+
+
+## Standard SysWhispers, 32-bit mode using direct jumps.
+python .\syswhispers.py --preset all -o syscalls_x86_jumper --arch x86 -m jumper
+
+## SysWhispers for specific functions in 32-bit mode targeting WoW64.
+python .\syswhispers.py --functions NtProtectVirtualMemory,NtWriteVirtualMemory -o syscalls_wow64_mem --arch x86 --wow64
+
+## Egg-Hunting SysWhispers (common functions), for dynamic syscall instruction replacement.
+python .\syswhispers.py --preset common -o syscalls_egg_hunter -m egg_hunter
+
+## Jumping Randomized SysWhispers (all functions) for MinGW compiler.
+python .\syswhispers.py --preset all -o syscalls_all_jump_random_mingw -m jumper_randomized -c mingw
