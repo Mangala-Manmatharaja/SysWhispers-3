@@ -43,20 +43,31 @@ usage: syswhispers.py [-h] [-p PRESET] [-a {x86,x64}] [-c {msvc,mingw,all}]
 SysWhispers3 - SysWhispers on steroids
 
 optional arguments:
-  -h, --help            show this help message and exit
+
+   -h, --help            show this help message and exit
+   
   -p PRESET, --preset PRESET
                         Preset ("all", "common")
+                        
   -a {x86,x64}, --arch {x86,x64}
                         Architecture
+                        
   -c {msvc,mingw,all}, --compiler {msvc,mingw,all}
                         Compiler (msvc is primary, mingw is community supported)
+                        
   -m {embedded,egg_hunter,jumper,jumper_randomized}, --method {embedded,egg_hunter,jumper,jumper_randomized}
                         Syscall recovery method
+                        
   -f FUNCTIONS, --functions FUNCTIONS
                         Comma-separated functions
+                        
   -o OUT_FILE, --out-file OUT_FILE
                         Output basename (w/o extension)
+                        
   --int2eh              Use the old `int 2eh` instruction in place of `syscall` (x86 only)
+  
   --wow64               Use Wow64 to run x86 on x64 (only usable with x86 architecture)
+  
   -v, --verbose         Enable debug output
+  
   -d, --debug           Enable syscall debug (insert software breakpoint)
