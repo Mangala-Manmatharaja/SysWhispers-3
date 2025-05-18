@@ -100,22 +100,6 @@ optional arguments:
     python .\syswhispers.py --preset all -o syscalls_all_jump_random_mingw -m jumper_randomized -c mingw
 
 
-## Script Output Example
-
-
-- PS C:\Projects\SysWhispers3> python .\syswhispers.py --preset common --out-file temp\syscalls_common -v
-                                                       
-    
-                  
-                  .                         ,--.
-,-. . . ,-. . , , |-. o ,-. ,-. ,-. ,-. ,-.  __/
-`-. | | `-. |/|/  | | | `-. | | |-' |   `-. .  \
-`-' `-| `-' ' '   ' ' ' `-' |-' `-' '   `-'  '''
-     /|                     |  @Jackson_T
-    `-'                     '  @modexpblog, 2021
-
-                      Edits by @klezVirus,  2022
-
                       
 ## SysWhispers3: Why call the kernel when you can whisper?
 
