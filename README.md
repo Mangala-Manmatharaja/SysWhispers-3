@@ -103,8 +103,10 @@ optional arguments:
 ## Script Output Example
 
 
-PS C:\Projects\SysWhispers3> python .\syswhispers.py --preset common --out-file temp\syscalls_common -v
+- PS C:\Projects\SysWhispers3> python .\syswhispers.py --preset common --out-file temp\syscalls_common -v
                                                        
+    
+                  
                   .                         ,--.
 ,-. . . ,-. . , , |-. o ,-. ,-. ,-. ,-. ,-.  __/
 `-. | | `-. |/|/  | | | `-. | | |-' |   `-. .  \
@@ -113,7 +115,9 @@ PS C:\Projects\SysWhispers3> python .\syswhispers.py --preset common --out-file 
     `-'                     '  @modexpblog, 2021
 
                       Edits by @klezVirus,  2022
-SysWhispers3: Why call the kernel when you can whisper?
+
+                      
+## SysWhispers3: Why call the kernel when you can whisper?
 
 
 Common functions selected.
