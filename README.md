@@ -1,4 +1,4 @@
-# SysWhisp
+# SysWhispe
 
 SysWhispers3 helps with evasion by generating header/ASM files that implants can use to make direct system calls, bypassing user-mode hooks.
 
